@@ -3,12 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Frontend</title>
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="TemplateData/style.css">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <app-root></app-root>
+  <div class="webgl-content">
+  </div>
+  <div id="unityContainer" style="width: 960px; height: 600px"></div>
+  <div class="footer">
+    <div class="webgl-logo"></div>
+    <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+    <div class="title">mViz_test1</div>
+  </div>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/frontend.json", {onProgress: UnityProgress});
+  </script>
 </body>
 </html>

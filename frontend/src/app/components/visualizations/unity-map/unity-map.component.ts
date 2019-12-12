@@ -14,6 +14,11 @@ export class UnityMapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let unity = document.querySelector("#unityContainer");
+    let container = document.querySelector("#unity-map-container");
+
+    //unity.parentNode = container;
+    container.appendChild(unity);
   }
 
 }
