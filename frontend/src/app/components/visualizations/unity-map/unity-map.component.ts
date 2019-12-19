@@ -9,6 +9,8 @@ import { Distribution } from '../../../../../../backend/src/shared/dataset';
 import { HttpProxyService } from './../../../http-proxy.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+let unityInstance : any;
+
 @Component({
   selector: 'app-unity-map',
   templateUrl: './unity-map.component.html',
@@ -51,7 +53,7 @@ export class UnityMapComponent implements OnInit {
         this.createClickInteraction(map);
       });*/
 
-      window.unityInstance.SendMessage('BrowserBindings', 'DigestJSON', JSON.stringify(geojson));
+      //unityInstance.SendMessage('BrowserBindings', 'DigestJSON', JSON.stringify(geojson));
     }, error => {
       console.error(error);
       const message = error.error && error.error.text ? error.error.text : JSON.stringify(error);
