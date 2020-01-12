@@ -53,7 +53,11 @@ export class UnityMapComponent implements OnInit {
         this.createClickInteraction(map);
       });*/
 
-      //unityInstance.SendMessage('BrowserBindings', 'DigestJSON', JSON.stringify(geojson));
+      console.log("open geojson", geojson);
+      var w : any = eval("window"); //HACK 
+
+      w.unityInstance.SendMessage('BrowserBindings', 'DigestJSON', JSON.stringify(geojson));
+      w.unityInstance.SendMessage('BrowserBindings', 'StartLevel');
     }, error => {
       console.error(error);
       const message = error.error && error.error.text ? error.error.text : JSON.stringify(error);
